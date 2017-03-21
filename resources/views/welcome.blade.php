@@ -11,6 +11,7 @@
 
 </head>
 <body>
+<div class="divider" style="height: 3px; background-color:#26a69a;"></div>
 	<header>
 		<nav class="z-depth-0 ">
 			<div class="nav-wrapper container">

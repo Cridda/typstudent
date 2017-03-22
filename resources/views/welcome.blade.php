@@ -95,12 +95,12 @@
 		<div class="offerte" style="height: 100vh; background-color: #ecf0f1">
 			<div class="container" id="offerte">
 
-				<form class="col s12 offerteform">
+				<form action="/store" class="col s12 offerteform">
 					<h3>Vraag geheel vrijblijvend een offerte aan!</h3>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">perm_identity</i> <input
-								required id="full_name" type="text" class="validate"> <label
+								name="name" required id="full_name" type="text" class="validate"> <label
 								for="first_name">Uw volledige naam</label>
 						</div>
 					</div>
@@ -108,7 +108,7 @@
 					<div class="row">
 						<div class="input-field col s6">
 							<i class="material-icons prefix">email</i> <input required
-								id="icon_email" type="email" class="validate"> <label
+								id="icon_email" name="email"type="email" class="validate"> <label
 								for="icon_email">Email</label>
 						</div>
 						<!--  <div class="row">
@@ -121,18 +121,18 @@
 
 						<div class="input-field col s6">
 							<i class="material-icons prefix">phone</i> <input required
-								data-length="10" id="icon_telephone" type="tel" class="validate">
+								data-length="10" name="phone" id="icon_telephone" type="tel" class="validate">
 							<label for="icon_telephone">Telephone</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix" id="icon_trans">library_books</i>
-							<select>
-								<option value="" disabled selected>Soort transcriptie</option>
-								<option value="1">Woordelijk - Uitgewerkt in een mooi verhaal,
+							<select name="soort">
+								<option value="geen ingevoerd" disabled selected>Soort transcriptie</option>
+								<option value="woordelijk">Woordelijk - Uitgewerkt in een mooi verhaal,
 									zonder stopwoorden en herhalingen.</option>
-								<option value="2">Letterlijk - Uitgewerkt in z'n oorspronkelijke
+								<option value="letterlijk">Letterlijk - Uitgewerkt in z'n oorspronkelijke
 									geheel, letterlijk alles wordt getranscribeerd.</option>
 							</select> <label for="icon_trans"></label>
 						</div>
@@ -140,7 +140,7 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix" id="icon_trans">subject</i> <select>
+							<i class="material-icons prefix" id="icon_trans">subject</i> <select name="onderwerp">
 								<option value="" disabled selected>Onderwerp</option>
 								<option value="1">Biologie en Milieuwetenschappen</option>
 								<option value="2">Economie</option>
@@ -171,14 +171,14 @@
 						</div>
 						<div class="input-field col s12">
 							<p class="range-field">
-								<input type="range" id="timepick" min="0" max="180" />
+								<input type="range" name="minuten" id="timepick" min="0" max="180" />
 							</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mode_edit</i>
-							<textarea id="textarea1" class="materialize-textarea"
+							<textarea id="textarea1" name="opmerkingen" class="materialize-textarea"
 								data-length="120"></textarea>
 							<label for="textarea1">Eventuele opmerkingen</label>
 						</div>

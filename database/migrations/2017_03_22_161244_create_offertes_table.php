@@ -18,11 +18,12 @@ class CreateOffertesTable extends Migration
     		$table->string('name');
     		$table->string('email')->unique();
     		$table->string('telephone');
-    		$table->string('soort');
+    		$table->string('kind');
     		$table->integer('subject');
-    		$table->integer('minuten');
-    		$table->text('opmerkingen');
+    		$table->integer('minutes');
+    		$table->text('comments');
     		$table->timestamps();
+    		$table->integer('status');
     	});
     }
 

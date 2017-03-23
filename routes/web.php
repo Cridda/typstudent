@@ -18,5 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/admin', 'AdminController@adminDashboard');
 
-Route::put('/store', 'OfferteController@index');
+
+
+
+
+
+
+//OFFERTES
+Route::get('/offertes', 'AdminController@allOffertes');
+Route::post('/offerte', 'OfferteController@store');
+Route::get('/offertes/{id}/done', 'AdminController@setOfferteDone');
+Route::get('/offertes/{id}', 'AdminController@showOfferte');

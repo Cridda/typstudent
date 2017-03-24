@@ -59,7 +59,7 @@
 							</div>
 
 						</div>
-						<div class="row"> {{ $offerte->subject }}
+						<div class="row">
 							<div class="input-field col s12">
 								<i class="material-icons prefix" id="icon_trans">subject</i>
 								<select name="onderwerp">

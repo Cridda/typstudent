@@ -11,25 +11,35 @@
 <body>
 	<div class="wrapper">
 		<div class="hero" id="hero">
-
+		<div class="divider blue darken-3" style="height: 5px;"></div>
 			<header>
-				<nav class="z-depth-0 ">
+				<nav class="z-depth-0">
 					<div class="nav-wrapper container ">
 						<a href="#!" class="brand-logo"><i class="material-icons">spellcheck</i>TypStudent</a> <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
 						<ul class="right hide-on-med-and-down ">
 							<li><a href="sass.html">Over ons</a></li>
 							<li><a href="badges.html">Tarieven</a></li>
-							<li><a href="collapsible.html">Blog</a></li>
-							<li><a href="mobile.html"><i class="material-icons">search</i></a></li> @if (Auth::guest())
+							@if (!Auth::guest())
 
-							<li><a href="{{ route('register') }}">Registreren</a></li>
-							<li><a href="#modal1">Login</a></li> @else
+							
 							<li><a href="#!" class="dropdown-button" data-activates="dropdown1"> {{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i>
-							</a></li> @endif
-
-
-
+							</a></li>
 						</ul>
+						<ul id="dropdown1" class="dropdown-content">
+
+							<li><a href="/admin">AdminPanel</a></li>
+							<li class="divider"></li>
+							<li><a href="/offertes">Offertes<span class="new badge">{{ $offertesCount }}</span></a></li>
+							<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Uitloggen</a>
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form></li>
+						</ul>
+
+						@endif
+
+
+
+
 						<ul class="side-nav" id="mobile-demo">
 							<li><a href="sass.html">Over ons</a></li>
 							<li><a href="badges.html">Tarieven</a></li>
@@ -37,19 +47,12 @@
 							<li><a href="mobile.html">Login</a></li>
 						</ul>
 						<!-- Dropdown Structure -->
-						<ul id="dropdown1" class="dropdown-content">
-							<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Logout</a>
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form></li>
-							<li><a href="#!">two</a></li>
-							<li class="divider"></li>
-							<li><a href="#!">three</a></li>
-						</ul>
+
 					</div>
+					
 				</nav>
 			</header>
-			<div class="divider"></div>
-
+<div class="divider"></div>
 
 
 
@@ -161,7 +164,7 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mode_edit</i>
-							<textarea id="textarea1" name="opmerkingen" class="materialize-textarea" data-length="120"></textarea>
+							<textarea id="textarea1" name="opmerkingen" class="materialize-textarea" data-length="500"></textarea>
 							<label for="textarea1">Eventuele opmerkingen</label>
 						</div>
 					</div>
@@ -231,13 +234,12 @@
 
 
 
-<footer class="page-footer blue darken-3">
+	<footer class="page-footer blue darken-3">
 		<div class="container">
 			<div class="row">
 				<div class="col l6 s12">
 					<h5 class="white-text">Over TypStudent</h5>
-					<p class="grey-text text-lighten-4">TypStudent is een initiatief van een tweetal studenten dat opzoek was naar een baantje. Zodoende is TypStudent ontstaan om mensen
-					te helpen met het proces van transcriberen.</p>
+					<p class="grey-text text-lighten-4">TypStudent is een initiatief van een tweetal studenten dat opzoek was naar een baantje. Zodoende is TypStudent ontstaan om mensen te helpen met het proces van transcriberen.</p>
 				</div>
 				<div class="col l4 offset-l2 s12">
 					<h5 class="white-text">Volg ons</h5>
@@ -249,8 +251,8 @@
 			</div>
 		</div>
 		<div class="footer-copyright">
-			<div class="container"><p>
-				Copyright &#169; 2017 TypStudent B.V.</p> 
+			<div class="container">
+				<p>Copyright &#169; 2017 TypStudent B.V.</p>
 			</div>
 		</div>
 	</footer>

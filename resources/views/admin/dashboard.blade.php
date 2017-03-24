@@ -16,13 +16,13 @@
 					<a class="adminbtn btn-large waves-effect" href="/offertes">Bekijk offertes</a>
 				</div>
 				<div class="col s3">
-					<a class="adminbtn btn-large green waves-effect">Klanten</a>
+					<a class="adminbtn disabled btn-large green waves-effect">Klanten</a>
 				</div>
 				<div class="col s3">
-					<a href="#" class="adminbtn btn-large yellow darken-3 waves-effect">Studenten</a>
+					<a href="#" class="adminbtn disabled btn-large yellow darken-3 waves-effect">Studenten</a>
 				</div>
 				<div class="col s3">
-					<a href="#" class="adminbtn btn-large grey waves-effect">Instellingen</a>
+					<a href="#" class="adminbtn disabled btn-large grey waves-effect">Instellingen</a>
 				</div>
 			</div>
 		</div>

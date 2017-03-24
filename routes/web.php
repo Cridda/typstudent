@@ -1,4 +1,9 @@
 <?php
+use App\Http\Controllers\AdminController;
+use App\Offerte;
+?>
+
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +17,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['offertesCount' => Offerte::all()->where('status', '0')->count()]);
 });
 
 Auth::routes();
@@ -22,7 +27,8 @@ Route::get('/admin', 'AdminController@adminDashboard');
 
 
 
-
+//GUEST
+Route::get('/succes', 'GuestController@succes');
 
 
 
@@ -31,3 +37,4 @@ Route::get('/offertes', 'AdminController@allOffertes');
 Route::post('/offerte', 'OfferteController@store');
 Route::get('/offertes/{id}/done', 'AdminController@setOfferteDone');
 Route::get('/offertes/{id}', 'AdminController@showOfferte');
+Route::put('/offertes/{id}/edit', 'AdminController@editOfferte');

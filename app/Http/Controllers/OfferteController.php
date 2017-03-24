@@ -29,7 +29,7 @@ class OfferteController extends Controller
 		$offerte->comments = request('opmerkingen');
 		$offerte->status = 0;
 		$offerte->save();
-		return redirect('/');
+		return view('succes');
 	}
 
 }

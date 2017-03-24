@@ -42,7 +42,7 @@
 	justify-content: center;
 }
 .admincontent{
-	margin-top: 5%;
+	margin-top: 2%;
 }
  .adminbtnrow{
     display:flex;
@@ -69,7 +69,15 @@
 .statusIsDoing{
 	background:#f9fbe7;
 }
-
+.selected{
+	 background-color: #e3f2fd;
+}
+.succes{
+	
+	h1{
+	color: #FFF;
+	}
+}
 @media only screen and (max-width: 800px) {
     h1 {
         font-size:30px;

@@ -22,6 +22,7 @@
 		<table id="clickable">
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>Naam</th>
 					<th>Email</th>
 					<th>Datum geplaatst</th>
@@ -31,19 +32,23 @@
 
 			<tbody>
 				@foreach ($offertes as $offerte) @if($offerte->status == 2)
-				<tr class="statusIsDone">@elseif($offerte->status == 1)
+				<tr onclick="window.document.location='/offertes/{{$offerte->id}}/';" class="statusIsDone">@elseif($offerte->status == 1)
 				
 				
-				<tr class="statusIsDoing">@else
+				<tr onclick="window.document.location='/offertes/{{$offerte->id}}/';" class="statusIsDoing">@else
 				
 				
-				<tr>
+				<tr onclick="window.document.location='/offertes/{{$offerte->id}}/';">
 					@endif
+					<td>{{ $offerte->id }}</td>
 					<td>{{ $offerte->name }}</td>
 					<td>{{ $offerte->email }}</td>
 					<td>{{ $offerte->created_at}}</td>
-					<td style="display: flex; justify-content: flex-end;">@if($offerte->status != 2) <a href="/offertes/{{$offerte->id}}/done" class="btn-floating green darken-3 waves-effect"><i class="material-icons">done</i></a>&nbsp; @endif <a href="/offertes/{{$offerte->id}}/" class="btn-floating blue darken-3 waves-effect"><i class="material-icons">mode_edit</i></a>&nbsp;<a class="red darken-3 btn-floating waves-effect" href="offerte/{{$offerte->id}}/delete"><i class="material-icons">delete</i></a></td>
+					<td style="display: flex; justify-content: flex-end;">@if($offerte->status != 2) <a href="/offertes/{{$offerte->id}}/done" class="btn-floating green darken-3 waves-effect"><i class="material-icons">done</i></a>&nbsp; @endif <a
+						href="/offertes/{{$offerte->id}}/" class="btn-floating blue darken-3 waves-effect" id="editOfferte"><i class="material-icons">mode_edit</i></a>&nbsp;<a class="red darken-3 btn-floating waves-effect"
+						href="offerte/{{$offerte->id}}/delete"><i class="material-icons">delete</i></a></td>
 				</tr>
+
 				@endforeach
 			</tbody>
 		</table>

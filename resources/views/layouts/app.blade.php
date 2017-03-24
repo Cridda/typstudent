@@ -49,7 +49,7 @@
 
 		<div class="right fixed-action-btn stickylog ">
 			<!-- Authentication Links -->
-			@if (Auth::guest()) <a id="loginbutton" class="z-depth-3" href="{{ route('login') }}">Login</a> @else <a href="#" class="" data-toggle="dropdown" role="button" aria-expanded="false"> Ingelogd als: {{ Auth::user()->name }} &nbsp;<span class="caret"></span>
+			@if (Auth::guest()) <a id="loginbutton" class="z-depth-3" href="{{ route('login') }}">Login</a> @else <a href="#" class="" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Ingelogd als: {{ Auth::user()->name }}</strong>  &nbsp;<span class="caret"></span>
 			</a> <a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> Uitloggen </a>
 
@@ -62,27 +62,37 @@
 	<!-- Scripts -->
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
 	<script type="text/javascript">
-	$("#search").on("keyup", function() {
-	    var value = $(this).val();
+	 $(document).ready(function() {
+		    $('select').material_select();
+		});
+	  $(document).ready(function(){
+		    $('.transcriptie').tooltip({delay: 50});
+		  });
+	$("#search").keyup(function () {
+	    var value = this.value.toLowerCase().trim();
 
-	    $("table tr").each(function(index) {
-	        if (index !== 0) {
-
-	            $row = $(this);
-
-	            var id = $row.find("td:first").text();
-
-	            if (id.indexOf(value) !== 0) {
-	                $row.hide();
-	            }
-	            else {
-	                $row.show();
-	            }
-	        }
+	    $("table tr").each(function (index) {
+	        if (!index) return;
+	        $(this).find("td").each(function () {
+	            var id = $(this).text().toLowerCase().trim();
+	            var not_found = (id.indexOf(value) == -1);
+	            $(this).closest('tr').toggle(!not_found);
+	            return not_found;
+	        });
 	    });
-	});</script>
+	});
+	$("table tr").click(function(){
+		   $(this).addClass('selected').siblings().removeClass('selected');    
+		   var value=$(this).find('td:first').html();
+		});
+
+		$('#table tr').on('click', function(e){
+		    alert(window.location=link.attr('href'));
+		});
+		
+
+	</script>
 </body>
 </html>
